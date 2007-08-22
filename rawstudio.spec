@@ -7,7 +7,7 @@ URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
 License:	GPL
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
-BuildRequires:	libtiff-devel zlib-devel liblcms-devel ImageMagick
+BuildRequires:	libtiff-devel zlib-devel lcms-devel ImageMagick
 BuildRequires:  desktop-file-utils
 Buildroot:	%_tmppath/%name-%version-%release-root
 
