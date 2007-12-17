@@ -9,7 +9,6 @@ License:	GPL
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
 BuildRequires:	libtiff-devel zlib-devel lcms-devel ImageMagick
 BuildRequires:  desktop-file-utils
-Buildroot:	%_tmppath/%name-%version-%release-root
 
 %description
 Rawstudio is an open source raw-image converter written in GTK+.
