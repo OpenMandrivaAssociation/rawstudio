@@ -1,11 +1,11 @@
 Name:		rawstudio
-Version:	0.6
+Version:	0.7
 Release:	%mkrel 1
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
-License:	GPL
+License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
 BuildRequires:	libtiff-devel zlib-devel lcms-devel ImageMagick
 BuildRequires:  desktop-file-utils
@@ -30,7 +30,7 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 %setup -q 
 
 %build
-%configure2_5x 
+%configure
 
 %make
 
@@ -39,6 +39,9 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 rm -fr %buildroot
 
 %makeinstall_std 
+
+# Icon in desktop file should not have an extension
+sed -i -e "s/Icon=\(.*\)\.png$/Icon=\1/" $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
 
 desktop-file-install --vendor="" \
   --remove-category="Application" \
