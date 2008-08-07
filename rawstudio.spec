@@ -1,6 +1,6 @@
 Name:		rawstudio
-Version:	0.7
-Release:	%mkrel 4
+Version:	1.0
+Release:	%mkrel 1
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
@@ -38,7 +38,8 @@ rm -rf $RPM_BUILD_DIR/%{name}-%{version}
 
 rm -fr %buildroot
 
-%makeinstall_std 
+%makeinstall_std
+%find_lang %{name}
 
 # Icon in desktop file should not have an extension
 sed -i -e "s/Icon=\(.*\)\.png$/Icon=\1/" $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
@@ -69,7 +70,7 @@ rm -fr %buildroot
 %clean_desktop_database
 %endif
 
-%files 
+%files -f %{name}.lang
 %defattr(-,root,root)
 %docdir %{_docdir}/%{name}-%{version}
 %doc README
@@ -79,3 +80,5 @@ rm -fr %buildroot
 %_iconsdir/*.png
 %_liconsdir/*.png
 %_miconsdir/*.png
+%_datadir/%name/rawstudio.gtkrc
+%_datadir/%name/ui.xml
