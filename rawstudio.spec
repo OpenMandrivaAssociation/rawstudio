@@ -1,5 +1,5 @@
 Name:		rawstudio
-Version:	1.0
+Version:	1.1
 Release:	%mkrel 1
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
