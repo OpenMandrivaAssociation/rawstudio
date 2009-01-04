@@ -1,15 +1,15 @@
 Name:		rawstudio
 Version:	1.1
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
+Patch0:		rawstudio-1.1-fix-str-fmt.patch
 License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
 BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
 BuildRequires:	libexiv-devel
-BuildRequires:  desktop-file-utils
 Buildroot:	%_tmppath/%name-%version-%release-root
 
 %description
@@ -26,29 +26,18 @@ Features:
 * Fullscreen mode for better overview
 
 %prep
-rm -rf $RPM_BUILD_DIR/%{name}-%{version}
-
-%setup -q 
+%setup -q
+%patch0 -p0
 
 %build
-%configure
-
+%configure2_5x
 %make
 
 %install
-
 rm -fr %buildroot
 
 %makeinstall_std
 %find_lang %{name}
-
-# Icon in desktop file should not have an extension
-sed -i -e "s/Icon=\(.*\)\.png$/Icon=\1/" $RPM_BUILD_ROOT%{_datadir}/applications/%{name}.desktop
-
-desktop-file-install --vendor="" \
-  --remove-category="Application" \
-  --dir $RPM_BUILD_ROOT%{_datadir}/applications $RPM_BUILD_ROOT%{_datadir}/applications/*
-
 
 install -d %buildroot%{_datadir}/icons/{large,mini}
 
