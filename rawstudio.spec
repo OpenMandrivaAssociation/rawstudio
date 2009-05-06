@@ -1,11 +1,11 @@
 Name:		rawstudio
-Version:	1.1
-Release:	%mkrel 2
+Version:	1.2
+Release:	%mkrel 1
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
-Patch0:		rawstudio-1.1-fix-str-fmt.patch
+Patch0:		rawstudio-1.2-fix-str-fmt.patch
 License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
 BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
@@ -27,7 +27,7 @@ Features:
 
 %prep
 %setup -q
-%patch0 -p0
+%patch0 -p1
 
 %build
 %configure2_5x
