@@ -6,6 +6,7 @@ Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
 Patch0:		rawstudio-1.2-fix-str-fmt.patch
+Patch1:		rawstudio-1.2-glibc-2.10.patch
 License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
 BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
@@ -28,6 +29,7 @@ Features:
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %configure2_5x
