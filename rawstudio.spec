@@ -1,16 +1,15 @@
 Name:		rawstudio
-Version:	1.2
-Release:	%mkrel 6
+Version:	2.0
+Release:	%mkrel 1
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
-Patch0:		rawstudio-1.2-fix-str-fmt.patch
-Patch1:		rawstudio-1.2-glibc-2.10.patch
 License:	GPLv2
-BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel
+BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel GConf2
 BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
-BuildRequires:	libexiv-devel
+BuildRequires:	libexiv-devel lensfun-devel flickcurl-devel gphoto2-devel
+BuildRequires:	sqlite3-devel libxml2-devel fftw3-devel
 Buildroot:	%_tmppath/%name-%version-%release-root
 
 %description
@@ -28,11 +27,9 @@ Features:
 
 %prep
 %setup -q
-%patch0 -p1
-%patch1 -p1
 
 %build
-%configure2_5x
+%configure2_5x --disable-static
 %make
 
 %install
@@ -46,6 +43,8 @@ install -d %buildroot%{_datadir}/icons/{large,mini}
 convert pixmaps/rawstudio.png -resize 32x32 %buildroot%{_iconsdir}/%{name}.png
 convert pixmaps/rawstudio.png -resize 16x16 %buildroot%{_miconsdir}/%{name}.png
 cp pixmaps/rawstudio.png %buildroot%{_liconsdir}/%{name}.png
+
+rm -fr %buildroot%_includedir %buildroot%_libdir/{*.so,*.la,pkgconfig}
 
 %clean
 rm -fr %buildroot
@@ -67,10 +66,11 @@ rm -fr %buildroot
 %docdir %{_docdir}/%{name}-%{version}
 %doc README
 %_bindir/*
+%_libdir/*.so.*
+%_datadir/%name
+%_datadir/rawspeed
 %_datadir/applications/*
 %_datadir/pixmaps/*
 %_iconsdir/*.png
 %_liconsdir/*.png
 %_miconsdir/*.png
-%_datadir/%name/rawstudio.gtkrc
-%_datadir/%name/ui.xml
