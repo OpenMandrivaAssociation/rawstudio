@@ -5,6 +5,7 @@ Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
+Patch0:		rawstudio-2.0-fix-linking.patch
 License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel GConf2
 BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
@@ -27,6 +28,8 @@ Features:
 
 %prep
 %setup -q
+%apply_patches
+autoreconf -fi
 
 %build
 %configure2_5x --disable-static
