@@ -1,6 +1,6 @@
 Name:		rawstudio
 Version:	2.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
