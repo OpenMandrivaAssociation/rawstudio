@@ -10,7 +10,7 @@ Patch1:		rawstudio-2.0-rosa-libpng.patch
 BuildRequires:	pkgconfig(libgphoto2)
 License:	GPLv2
 BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel GConf2
-BuildRequires:	libtiff-devel zlib-devel lcms-devel imagemagick
+BuildRequires:	pkgconfig(libtiff-4) zlib-devel lcms-devel imagemagick
 BuildRequires:	libexiv-devel flickcurl-devel
 BuildRequires:	sqlite3-devel libxml2-devel fftw3-devel
 BuildRequires:	pkgconfig(libgphoto2)
