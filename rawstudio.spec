@@ -1,6 +1,6 @@
 Name:		rawstudio
 Version:	2.0
-Release:	2
+Release:	3
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
