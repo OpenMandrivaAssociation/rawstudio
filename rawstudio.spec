@@ -1,6 +1,6 @@
 Name:		rawstudio
 Version:	2.0
-Release:	3
+Release:	4
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
 URL:		http://rawstudio.org/
@@ -9,12 +9,13 @@ Patch0:		rawstudio-2.0-rosa-linkage.patch
 Patch1:		rawstudio-2.0-rosa-libpng.patch
 BuildRequires:	pkgconfig(libgphoto2)
 License:	GPLv2
-BuildRequires:	gtk+2-devel libjpeg-devel libGConf2-devel GConf2
+BuildRequires:	gtk+2-devel libjpeg-devel GConf2
 BuildRequires:	pkgconfig(libtiff-4) zlib-devel lcms-devel imagemagick
 BuildRequires:	libexiv-devel flickcurl-devel
 BuildRequires:	sqlite3-devel libxml2-devel fftw3-devel
 BuildRequires:	pkgconfig(libgphoto2)
 BuildRequires:	pkgconfig(lensfun)
+BuildRequires:	pkgconfig(gconf-2.0)
 
 %description
 Rawstudio is an open source raw-image converter written in GTK+.
