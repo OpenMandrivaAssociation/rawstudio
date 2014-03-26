@@ -38,6 +38,7 @@ Features:
 %build
 # required for patch0
 autoreconf -fi
+cp configure.ac configure.in
 
 %configure2_5x --disable-static
 %make
