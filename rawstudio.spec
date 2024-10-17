@@ -3,7 +3,7 @@ Version:	2.0
 Release:	6
 Summary:	Graphical tool to convert raw images of digital cameras
 Group:		Graphics
-URL:		http://rawstudio.org/
+URL:		https://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
 Patch0:		rawstudio-2.0-rosa-linkage.patch
 Patch1:		rawstudio-2.0-rosa-libpng.patch
