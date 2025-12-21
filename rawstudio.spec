@@ -7,6 +7,11 @@ URL:		https://rawstudio.org/
 Source0:	http://rawstudio.org/files/release/%{name}-%{version}.tar.gz
 Patch0:		rawstudio-2.0-rosa-linkage.patch
 Patch1:		rawstudio-2.0-rosa-libpng.patch
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	pkgconfig(libgphoto2)
 License:	GPLv2
 BuildRequires:	pkgconfig(gtk+-2.0) jpeg-devel GConf2
